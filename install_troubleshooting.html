@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Installation Troubleshooting</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--primary:#ff0000;--dark:#0a0a0a;--text:#e0e0e0}
+body{background:var(--dark);color:var(--text);font-family:'Roboto Mono',monospace;margin:0}
+header{background:#111;border-bottom:2px solid var(--primary);padding:16px}
+h1{margin:0;color:var(--primary)}
+.container{max-width:900px;margin:0 auto;padding:16px}
+.section{margin:16px 0;padding:16px;background:#0b0b0b;border:1px solid #222}
+.btn{display:inline-block;border:1px solid var(--primary);color:var(--primary);padding:8px 12px;text-decoration:none;text-transform:uppercase}
+.btn:hover{background:var(--primary);color:#000}
+.code{font-family:monospace;background:#111;padding:8px;display:block;margin:6px 0}
+.muted{color:#999}
+</style>
+</head>
+<body>
+<header>
+<h1><i class="fas fa-tools"></i> Installation Troubleshooting</h1>
+</header>
+<div class="container">
+<div class="section">
+<div>Windows</div>
+<div class="muted">SmartScreen</div>
+<div class="code">Right-click installer → Properties → Unblock → Run as Administrator</div>
+<div class="muted">Signature</div>
+<div class="code">Right-click installer → Properties → Digital Signatures → Details</div>
+<div class="muted">Hash</div>
+<div class="code">certutil -hashfile C:\path\to\installer.exe SHA256</div>
+</div>
+<div class="section">
+<div>macOS</div>
+<div class="muted">Gatekeeper</div>
+<div class="code">System Settings → Privacy & Security → Allow Anyway</div>
+<div class="muted">Signature</div>
+<div class="code">codesign -dv --verbose=2 /Applications/The3rdDemon.app</div>
+<div class="muted">Hash</div>
+<div class="code">shasum -a 256 ~/Downloads/The3rdDemon.dmg</div>
+</div>
+<div class="section">
+<div>Android</div>
+<div class="muted">Unknown Sources</div>
+<div class="code">Settings → Security → Install unknown apps → Allow</div>
+<div class="muted">Signature</div>
+<div class="code">apksigner verify --print-certs The3rdDemon.apk</div>
+<div class="muted">Hash</div>
+<div class="code">sha256sum The3rdDemon.apk</div>
+</div>
+<div class="section">
+<div>Rollback</div>
+<div class="code">Use previous tag v1.0-final and redeploy</div>
+<a class="btn" href="downloads.html">Back to Downloads</a>
+</div>
+</div>
+</body>
+</html>

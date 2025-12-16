@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 3rd Demon • Downloads</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="/config.js"></script>
+<style>
+:root{--primary:#ff0000;--dark:#0a0a0a;--gray:#151515;--text:#e0e0e0}
+body{background:var(--dark);color:var(--text);font-family:'Roboto Mono',monospace;margin:0}
+header{background:#111;border-bottom:2px solid var(--primary);padding:16px;display:flex;justify-content:space-between;align-items:center}
+h1{margin:0;color:var(--primary)}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:rgba(0,0,0,0.6);border:1px solid #333;padding:16px}
+.card h3{margin:0 0 8px;color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--primary);color:var(--primary);background:transparent;padding:10px 14px;text-decoration:none;text-transform:uppercase;cursor:pointer}
+.btn:hover{background:var(--primary);color:#000}
+.muted{color:#999;font-size:.9rem}
+.recommend{border:1px dashed var(--primary);padding:8px;margin-bottom:12px}
+.hash{font-family:monospace;word-break:break-all}
+.section{margin:16px 0;padding:16px;background:#0b0b0b;border:1px solid #222}
+.list{margin:8px 0 0 16px}
+.tag{display:inline-block;border:1px solid #444;padding:2px 6px;margin-right:6px;font-size:.8rem;color:#bbb}
+.foot{padding:24px;text-align:center;color:#888;border-top:1px solid #222;margin-top:24px}
+</style>
+</head>
+<body>
+<header>
+<h1><i class="fas fa-download"></i> Downloads</h1>
+<div id="platform-tag" class="tag">Detecting...</div>
+</header>
+<div class="container">
+<div class="section recommend" id="recommend-box">
+<div id="recommend-text">Recommended build will appear here.</div>
+</div>
+<div class="grid">
+<div class="card">
+<h3><i class="fab fa-windows"></i> Windows</h3>
+<div class="muted">Windows 7–11, x64</div>
+<div class="hash" id="win-hash"></div>
+<div style="margin-top:8px">
+<a id="win-download" class="btn"><i class="fas fa-file-download"></i> Download .exe</a>
+<button id="win-verify" class="btn"><i class="fas fa-shield-alt"></i> Verify SHA-256</button>
+</div>
+<div class="list">
+<div>Requirements:</div>
+<ul>
+<li>Intel/AMD x64, 4 GB RAM</li>
+<li>Internet connectivity</li>
+<li>Administrator privileges</li>
+</ul>
+<div>Install:</div>
+<ul>
+<li>Run the installer</li>
+<li>Allow Windows SmartScreen</li>
+<li>Confirm digital signature</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<h3><i class="fab fa-apple"></i> macOS</h3>
+<div class="muted">macOS 10.15+, Intel/Apple Silicon</div>
+<div class="hash" id="mac-hash"></div>
+<div style="margin-top:8px">
+<a id="mac-download" class="btn"><i class="fas fa-file-download"></i> Download .dmg</a>
+<button id="mac-verify" class="btn"><i class="fas fa-shield-alt"></i> Verify SHA-256</button>
+</div>
+<div class="list">
+<div>Requirements:</div>
+<ul>
+<li>macOS Catalina or later</li>
+<li>Internet connectivity</li>
+</ul>
+<div>Install:</div>
+<ul>
+<li>Open the DMG</li>
+<li>Drag the app to Applications</li>
+<li>Approve Gatekeeper</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<h3><i class="fab fa-android"></i> Android</h3>
+<div class="muted">Android 8.0+</div>
+<div class="hash" id="android-hash"></div>
+<div style="margin-top:8px">
+<a id="android-download" class="btn"><i class="fas fa-file-download"></i> Download .apk</a>
+<button id="android-verify" class="btn"><i class="fas fa-shield-alt"></i> Verify SHA-256</button>
+</div>
+<div class="list">
+<div>Permissions:</div>
+<ul>
+<li>Camera</li>
+<li>Microphone</li>
+<li>Network</li>
+</ul>
+<div>Install:</div>
+<ul>
+<li>Enable unknown sources</li>
+<li>Open the APK</li>
+<li>Approve install</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section">
+<div class="muted">Launch after install</div>
+<button id="launch-app" class="btn"><i class="fas fa-rocket"></i> Launch</button>
+</div>
+<div class="section">
+<div>Troubleshooting</div>
+<a class="btn" href="install_troubleshooting.html"><i class="fas fa-book"></i> Guide</a>
+</div>
+</div>
+<div class="foot">
+<div id="status"></div>
+</div>
+<script>
+function detectPlatform(){const ua=navigator.userAgent.toLowerCase();if(ua.includes('windows'))return'windows';if(ua.includes('mac os')||ua.includes('macintosh'))return'mac';if(ua.includes('android'))return'android';if(ua.includes('linux'))return'linux';return'other'}
+function hr(s){return s.replace(/(.{4})/g,'$1 ').trim()}
+async function fetchVersions(){const r=await fetch('/assets/version.json');return await r.json()}
+async function sha256(url){const r=await fetch(url,{cache:'no-store'});const b=await r.arrayBuffer();const d=await crypto.subtle.digest('SHA-256',b);const a=Array.from(new Uint8Array(d)).map(b=>b.toString(16).padStart(2,'0')).join('');return a}
+async function track(ev,meta){try{await fetch('/api/analytics/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:(localStorage.getItem('demon_user_id')||'ANON'),event_type:ev,page_url:window.location.pathname,device_info:navigator.userAgent,meta_data:JSON.stringify(meta||{})})})}catch(e){}}
+function fileUrl(name){return '/downloads/'+name}
+function releaseUrl(name){return 'https://github.com/Dummys247/dummys247.github.io/releases/latest/download/'+name}
+async function init(){const platform=detectPlatform();document.getElementById('platform-tag').innerText=platform.toUpperCase();const v=await fetchVersions();const winFile=v.windows?.file||'win.exe';const macFile=(v.mac?.file||'THE_3RD_DEMON_MAC.dmg').replace('.zip','.dmg');const androidFile=v.android?.file||'THE_3RD_DEMON.apk';const winHref=fileUrl(winFile);const macHref=fileUrl(macFile);const androidHref=fileUrl(androidFile);document.getElementById('win-download').href=winHref;document.getElementById('mac-download').href=macHref;document.getElementById('android-download').href=androidHref;document.getElementById('win-hash').innerText=v.windows?.checksum?hr(v.windows.checksum):'';const rec=document.getElementById('recommend-text');if(platform==='windows')rec.innerText='Recommended: Windows '+(v.windows?.version||'');else if(platform==='mac')rec.innerText='Recommended: macOS '+(v.mac?.version||'');else if(platform==='android')rec.innerText='Recommended: Android '+(v.android?.version||'');else rec.innerText='Select your platform';document.getElementById('win-download').onclick=async(e)=>{track('DOWNLOAD_CLICK',{platform:'windows',file:winFile});if(!winFile){e.preventDefault()}};document.getElementById('mac-download').onclick=async(e)=>{track('DOWNLOAD_CLICK',{platform:'mac',file:macFile})};document.getElementById('android-download').onclick=async(e)=>{track('DOWNLOAD_CLICK',{platform:'android',file:androidFile})};document.getElementById('win-verify').onclick=async()=>{const s=document.getElementById('status');s.innerText='Verifying...';try{const d=await sha256(winHref);s.innerText='Windows SHA-256: '+d;track('HASH_VERIFY',{platform:'windows',computed:d})}catch(e){s.innerText='Unable to verify automatically';}};document.getElementById('mac-verify').onclick=async()=>{const s=document.getElementById('status');s.innerText='Verifying...';try{const d=await sha256(macHref);s.innerText='macOS SHA-256: '+d;track('HASH_VERIFY',{platform:'mac',computed:d})}catch(e){s.innerText='Unable to verify automatically';}};document.getElementById('android-verify').onclick=async()=>{const s=document.getElementById('status');s.innerText='Verifying...';try{const d=await sha256(androidHref);s.innerText='Android SHA-256: '+d;track('HASH_VERIFY',{platform:'android',computed:d})}catch(e){s.innerText='Unable to verify automatically';}};document.getElementById('launch-app').onclick=async()=>{track('LAUNCH_ATTEMPT',{});window.location.href='demon://open'}}
+init()
+</script>
+</body>
+</html>
