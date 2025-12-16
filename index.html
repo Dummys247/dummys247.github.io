@@ -823,6 +823,9 @@
                         btn.setAttribute('href', href + sep + 'custom=' + encodeURIComponent(userId));
                     }
                 }
+                if (params.get('app') === '1') {
+                    openApp();
+                }
             } catch(e) {}
             // Dynamic server status and peer count
             (async function() {
@@ -1225,6 +1228,9 @@
 
         function closeApp() {
             document.getElementById('app-overlay').style.display = 'none';
+        }
+        function openApp() {
+            document.getElementById('app-overlay').style.display = 'flex';
         }
 
         function startChat() {
