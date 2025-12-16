@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostics & Analytics – THE 3RD DEMON</title>
+    <meta name="description" content="System diagnostics and analytics instrumentation: health checks, telemetry, GTM events, and performance baselines.">
+    <meta name="keywords" content="Diagnostics, Analytics, GTM, Health Checks, Telemetry">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/diagnostics_analytics.html" />
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9583919966792475" crossorigin="anonymous"></script>
+    <script src="/config.js"></script>
+    <script>
+        window.GTM_ID = window.GTM_ID || 'GTM-XXXXXXX';
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',window.GTM_ID);
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Diagnostics & Analytics",
+      "description": "Overview of the server diagnostics API and GTM analytics wiring across the site.",
+      "author": { "@type": "Organization", "name": "Hyperinversion LTD" }
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Mono:wght@400;700&display=swap');
+        :root { --primary-red:#ff0000; --dark-red:#500000; --black:#050505; --text:#e0e0e0; }
+        body { margin:0; padding:0; background:var(--black); color:var(--text); font-family:'Roboto Mono', monospace; line-height:1.7; }
+        header { text-align:center; padding:2rem 1rem; border-bottom:2px solid var(--dark-red); background:rgba(0,0,0,0.85); position:sticky; top:0; z-index:10; }
+        .glitch { color:var(--primary-red); font-family:'Creepster', cursive; font-size:2.4rem; margin:0; text-shadow:2px 2px var(--dark-red); }
+        nav { margin-top:1rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+        .nav-link { color:var(--primary-red); text-decoration:none; font-weight:bold; text-transform:uppercase; border:1px solid var(--primary-red); padding:0.5rem 0.9rem; transition:all .2s; font-size:.9rem; }
+        .nav-link:hover { background:var(--primary-red); color:#000; box-shadow:0 0 10px var(--dark-red); }
+        .container { max-width:1100px; margin:0 auto; padding:2rem 1rem; }
+        .ad-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1rem; margin:1.5rem 0; }
+        .ad-box { min-height:250px; background:#0a0a0a; border:1px dashed #333; display:flex; align-items:center; justify-content:center; padding:.75rem; }
+        h1 { font-size:1.8rem; color:var(--primary-red); margin:0 0 1rem 0; }
+        h2 { font-size:1.3rem; color:var(--primary-red); margin:2rem 0 0.75rem; }
+        h3 { font-size:1.05rem; color:#ccc; margin:1rem 0 0.5rem; }
+        .cta { display:flex; gap:0.8rem; margin-top:1rem; flex-wrap:wrap; }
+        .btn { background:#330000; color:#ff0000; border:1px solid #ff0000; padding:0.6rem 1rem; cursor:pointer; text-transform:uppercase; font-weight:bold; }
+        .btn:hover { background:#ff0000; color:#000; box-shadow:0 0 12px #ff0000; }
+        .img-wrap { text-align:center; margin:1.25rem 0; }
+        .img-wrap img { max-width:100%; width:700px; height:auto; border:2px solid var(--primary-red); box-shadow:0 0 20px var(--dark-red); }
+        .card { background:#0a0a0a; border:1px solid #333; padding:1rem; margin:1rem 0; }
+        footer { text-align:center; padding:2rem 1rem; border-top:1px solid #333; margin-top:2rem; font-size:.85rem; color:#888; }
+        .health { color:#0f0; }
+        .degraded { color:#ffcc00; }
+        .error { color:#ff4444; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+        <h1 class="glitch">DIAGNOSTICS & ANALYTICS</h1>
+        <nav>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="features_guide.html">Features</a>
+            <a class="nav-link" href="builder_agent.html">Builder</a>
+            <a class="nav-link" href="neural_overview.html">Neural Overview</a>
+            <a class="nav-link" href="p2p_file_sharing.html">P2P Files</a>
+            <a class="nav-link" href="diagnostics_analytics.html" style="background:var(--dark-red); color:white;">Diagnostics</a>
+            <a class="nav-link" href="voice_command.html">Voice</a>
+            <a class="nav-link" href="vision_system.html">Vision</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="ad-grid">
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <h1>Health Checks, Telemetry, and Event Instrumentation</h1>
+        <p>
+            Diagnostics provide a comprehensive snapshot of system health: static assets availability, database connectivity, environment versions, and network resolution. The analytics layer adds visibility into how users interact with the site, including social shares, button clicks, and feature invocations. Together, they support iterative improvement and production stability. This page explains how to read the diagnostics API, how GTM is injected into pages via a dynamic config endpoint, and how to validate performance across devices.
+        </p>
+        <p>
+            The diagnostics API returns status for static checks like index or favicon availability, database probes, environment versions, and STUN DNS resolution for WebRTC. A healthy result indicates that the baseline services are online. If the status is degraded, the page highlights the cause, such as missing static assets or database errors. By linking diagnostics to the Builder Agent, issues discovered during deployment are immediately converted into tasks to fix, test, and verify.
+        </p>
+        <p>
+            Analytics are unified through Google Tag Manager. Instead of hardcoding identifiers into pages, the site references a small dynamic script, `/config.js`, which sets `window.GTM_ID` from server environment variables. This makes production updates simple and consistent. Pages also log social share events and critical interactions to the server analytics endpoint for audits. The combined approach ensures both client‑side metrics and server‑side records remain aligned.
+        </p>
+        <div class="card">
+            <h2>Live Status</h2>
+            <p id="status-text">Loading diagnostics...</p>
+            <div class="cta">
+                <a class="btn" href="index.html">Return Home</a>
+            </div>
+        </div>
+        <div class="img-wrap">
+            <img src="assets/3rd_demon.jpg" alt="Diagnostics Dashboard Illustration">
+        </div>
+        <h2>Capabilities</h2>
+        <h3>Unified Health Checks</h3>
+        <p>One endpoint surfaces critical readiness signals for production operations.</p>
+        <h3>Environment‑Driven Analytics</h3>
+        <p>Pages ingest GTM ID at runtime through `/config.js` without code rewrites.</p>
+        <h3>Share and Interaction Events</h3>
+        <p>Client events are captured for visibility and improvement planning.</p>
+        <h2>Get Started</h2>
+        <div class="cta">
+            <a class="btn" href="builder_agent.html">Explore Builder</a>
+            <a class="btn" href="p2p_file_sharing.html">Try P2P Files</a>
+            <a class="btn" href="neural_overview.html">Understand Neural</a>
+        </div>
+        <div class="ad-grid">
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <footer>© 2025 Hyperinversion LTD. All rights reserved.</footer>
+    <script>
+        (async function(){
+            try {
+                const resp = await fetch('/api/diagnostics');
+                const data = await resp.json();
+                const el = document.getElementById('status-text');
+                if (resp.ok) {
+                    const ok = data.status === 'ok';
+                    el.className = ok ? 'health' : 'degraded';
+                    el.textContent = ok ? 'System status: HEALTHY' : 'System status: DEGRADED';
+                } else {
+                    el.className = 'error';
+                    el.textContent = 'Diagnostics error';
+                }
+            } catch {
+                const el = document.getElementById('status-text');
+                el.className = 'error';
+                el.textContent = 'Diagnostics unreachable';
+            }
+        })();
+    </script>
+</body>
+</html>

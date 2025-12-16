@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMON ARCHITECT - ADMIN CONSOLE</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        :root { --primary-red:#ff0000; --dark-red:#500000; --bg-black:#050505; --terminal-green:#00ff00; --terminal-bg:#0a0a0a; }
+        body { background-color:var(--bg-black); color:#ccc; font-family:'VT323', monospace; margin:0; padding:0; font-size:1.2rem; }
+        .dashboard { display:grid; grid-template-columns:250px 1fr; height:100vh; }
+        .sidebar { background:#000; border-right:1px solid var(--dark-red); padding:1rem; display:flex; flex-direction:column; }
+        .brand { color:var(--primary-red); font-size:2rem; text-align:center; margin-bottom:2rem; text-shadow:0 0 10px var(--dark-red); }
+        .menu-item { padding:1rem; cursor:pointer; border:1px solid transparent; margin-bottom:0.5rem; color:#888; transition:all 0.2s; }
+        .menu-item:hover, .menu-item.active { color:#fff; border-color:var(--primary-red); background:rgba(255,0,0,0.1); }
+        .logout-btn { margin-top:auto; background:var(--dark-red); color:white; border:none; padding:1rem; cursor:pointer; font-family:inherit; font-size:1.2rem; text-transform:uppercase; }
+        .main-content { padding:2rem; overflow-y:auto; }
+        .header-status { display:flex; justify-content:space-between; border-bottom:1px dashed #333; padding-bottom:1rem; margin-bottom:2rem; }
+        .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-bottom:2rem; }
+        .stat-card { background:#111; border:1px solid #333; padding:1.5rem; text-align:center; }
+        .stat-value { font-size:3rem; color:var(--primary-red); margin:0.5rem 0; }
+        .stat-label { color:#666; text-transform:uppercase; }
+        .log-panel { background:#000; border:1px solid #333; height:400px; overflow-y:scroll; padding:1rem; font-family:'Courier New', monospace; font-size:0.9rem; }
+        .log-entry { margin-bottom:0.5rem; border-bottom:1px solid #111; padding-bottom:0.2rem; }
+        .log-time { color:#666; margin-right:10px; } .log-type { color:var(--primary-red); margin-right:10px; font-weight:bold; } .log-msg { color:#aaa; }
+        .scan-line { position:fixed; top:0; left:0; width:100%; height:2px; background:rgba(255,0,0,0.1); animation:scan 3s linear infinite; pointer-events:none; z-index:999; }
+        @keyframes scan { 0% { top:-5%; } 100% { top:105%; } }
+    </style>
+</head>
+<body>
+    <div class="scan-line"></div>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="brand">ADMIN CORE</div>
+            <div class="menu-item active" onclick="showSection('dashboard')">DASHBOARD</div>
+            <div class="menu-item" onclick="showSection('logs')">SYSTEM LOGS</div>
+            <div class="menu-item" onclick="showSection('audit')">AUDIT TRAIL</div>
+            <div class="menu-item" onclick="showSection('notifications')">NOTIFICATIONS</div>
+            <div class="menu-item" onclick="showSection('console')">AI CONSOLE</div>
+            <button class="logout-btn" onclick="logout()">TERMINATE SESSION</button>
+        </aside>
+        <main class="main-content">
+            <div class="header-status">
+                <div>SYSTEM STATUS: <span style="color:#00ff00">ONLINE</span></div>
+                <div id="clock">00:00:00</div>
+            </div>
+            <div id="section-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-value" id="stat-users">-</div><div class="stat-label">Active Users</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-keys">-</div><div class="stat-label">Keys Used</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-events">-</div><div class="stat-label">Events (24h)</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-cpu">-</div><div class="stat-label">CPU Load</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-notifications">-</div><div class="stat-label">SMS Total/Fail</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-builder-status">OFFLINE</div><div class="stat-label">Builder Agent</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-p2p-peers">0</div><div class="stat-label">P2P Peers</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-voice-mode">INACTIVE</div><div class="stat-label">Voice System</div></div>
+                    <div class="stat-card"><div class="stat-value" id="stat-vision-reqs">0</div><div class="stat-label">Vision Requests</div></div>
+                </div>
+                <h3>RECENT ACTIVITY</h3>
+                <div class="log-panel" id="dashboard-logs"></div>
+            </div>
+            <div id="section-logs" style="display:none;"><h3>SYSTEM LOGS</h3><div class="log-panel" id="full-logs"></div></div>
+            <div id="section-audit" style="display:none;"><h3>ADMIN AUDIT TRAIL</h3><div class="log-panel" id="audit-logs"></div></div>
+            <div id="section-notifications" style="display:none;"><h3>NOTIFICATION LOGS</h3><div class="log-panel" id="notification-logs"></div></div>
+            <div id="section-console" style="display:none;">
+                <h3>NEURAL INTERFACE TERMINAL</h3>
+                <div class="log-panel" id="ai-chat-history" style="height:300px;"><div class="log-entry"><span class="log-type">CORE</span><span class="log-msg">Neural Core Connected...</span></div></div>
+                <div style="margin-top:1rem; display:flex;">
+                    <input type="text" id="console-input" placeholder="Enter command..." style="flex:1; padding:10px; background:#000; border:1px solid var(--primary-red); color:#fff; font-family:inherit;">
+                    <button onclick="sendConsoleCommand()" style="background:var(--primary-red); border:none; padding:0 20px; font-weight:bold; cursor:pointer;">SEND</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        setInterval(()=>{ document.getElementById('clock').innerText = new Date().toLocaleTimeString(); },1000);
+        fetchStats(); fetchLogs(); fetchNotifications();
+        function showSection(id){ document.querySelectorAll('[id^=\"section-\"]').forEach(el=>el.style.display='none'); document.getElementById('section-'+id).style.display='block'; document.querySelectorAll('.menu-item').forEach(el=>el.classList.remove('active')); event.target.classList.add('active'); }
+        async function fetchStats(){ try{ const res=await fetch('/api/admin/stats'); if(res.status===401||res.status===403){ window.location.href='/admin/login'; return; } const data=await res.json(); document.getElementById('stat-users').innerText=data.users; document.getElementById('stat-keys').innerText=`${data.keys_used}/${data.total_keys}`; document.getElementById('stat-events').innerText=data.recent_events; document.getElementById('stat-cpu').innerText=data.cpu_load; if(data.notifications){ document.getElementById('stat-notifications').innerText=`${data.notifications.total}/${data.notifications.failed}`; } if(data.neural_stats){ const ns=data.neural_stats; const bs=document.getElementById('stat-builder-status'); bs.innerText=ns.builder_active?'ONLINE':'OFFLINE'; bs.style.color=ns.builder_active?'#00ff00':'var(--primary-red)'; document.getElementById('stat-p2p-peers').innerText=ns.peers_count||0; document.getElementById('stat-voice-mode').innerText=ns.voice_active?'ACTIVE':'IDLE'; document.getElementById('stat-vision-reqs').innerText=ns.vision_requests||0; } }catch(e){ console.error('Stats fetch failed',e); } }
+        async function fetchLogs(){ try{ const res=await fetch('/api/admin/logs?limit=50'); const data=await res.json(); renderLogs(data.system_logs,'dashboard-logs'); renderLogs(data.system_logs,'full-logs'); renderLogs(data.audit_logs,'audit-logs'); }catch(e){ console.error('Logs fetch failed',e); } }
+        async function fetchNotifications(){ try{ const res=await fetch('/api/admin/notifications?limit=50'); const data=await res.json(); renderNotificationLogs(data); }catch(e){ console.error('Notifications fetch failed',e); } }
+        function renderLogs(logs,id){ const c=document.getElementById(id); c.innerHTML=logs.map(log=>`<div class=\"log-entry\"><span class=\"log-time\">[${new Date(log.timestamp).toLocaleTimeString()}]</span><span class=\"log-type\">${log.action||'INFO'}</span><span class=\"log-msg\">${log.details||log.ip_address}</span></div>`).join(''); }
+        function renderNotificationLogs(logs){ const c=document.getElementById('notification-logs'); c.innerHTML=logs.map(log=>`<div class=\"log-entry\"><span class=\"log-time\">[${new Date(log.timestamp).toLocaleTimeString()}]</span><span class=\"log-type\" style=\"color:${log.status==='SENT'?'#00ff00':'red'}\">${log.channel} ${log.status}</span><span class=\"log-msg\">${log.recipient} ${log.error_message?'- '+log.error_message:''}</span></div>`).join(''); }
+        async function sendConsoleCommand(){ const input=document.getElementById('console-input'); const history=document.getElementById('ai-chat-history'); const msg=input.value; if(!msg) return; history.innerHTML+=`<div class=\"log-entry\"><span class=\"log-type\" style=\"color:#fff;\">ADMIN</span><span class=\"log-msg\">${msg}</span></div>`; input.value=''; try{ const res=await fetch('/api/admin/chat',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({message:msg}) }); const data=await res.json(); history.innerHTML+=`<div class=\"log-entry\"><span class=\"log-type\">CORE</span><span class=\"log-msg\">${data.reply}</span></div>`; history.scrollTop=history.scrollHeight; }catch(e){ history.innerHTML+=`<div class=\"log-entry\"><span class=\"log-type\" style=\"color:red;\">ERROR</span><span class=\"log-msg\">Connection Lost</span></div>`; } }
+        function logout(){ document.cookie='admin_session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href='/admin/login'; }
+        setInterval(fetchStats,30000);
+    </script>
+</body>
+</html>

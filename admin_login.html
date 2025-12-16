@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE 3RD DEMON - ADMIN ACCESS</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <style>
+        :root { --primary-red:#ff0000; --dark-red:#8b0000; --bg-black:#050505; --text-gray:#ccc; }
+        body { background-color:var(--bg-black); color:var(--text-gray); font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; overflow-x:hidden; }
+        .glitch { position:relative; color:var(--primary-red); font-size:2.5rem; font-weight:bold; text-transform:uppercase; text-shadow:2px 2px 0px var(--dark-red); }
+        .container { max-width:400px; margin:100px auto; padding:2rem; border:1px solid var(--dark-red); background:rgba(10,0,0,0.9); box-shadow:0 0 20px var(--dark-red); text-align:center; }
+        .form-group { margin-bottom:1.5rem; text-align:left; }
+        label { display:block; color:var(--primary-red); margin-bottom:0.5rem; font-family:'Courier New', monospace; }
+        input { width:100%; padding:10px; background:#000; border:1px solid #333; color:#fff; font-family:'Courier New', monospace; box-sizing:border-box; }
+        input:focus { outline:none; border-color:var(--primary-red); box-shadow:0 0 10px var(--dark-red); }
+        button { width:100%; padding:12px; background:var(--dark-red); color:#fff; border:none; font-weight:bold; cursor:pointer; text-transform:uppercase; letter-spacing:2px; transition:all 0.3s ease; }
+        button:hover { background:var(--primary-red); box-shadow:0 0 15px var(--primary-red); }
+        .error-msg { color:#ff4444; margin-top:1rem; font-size:0.9rem; display:none; }
+        .hidden { display:none; }
+        .scan-line { position:fixed; top:0; left:0; width:100%; height:5px; background:rgba(255,0,0,0.1); animation:scan 3s linear infinite; pointer-events:none; z-index:999; }
+        @keyframes scan { 0%{ top:-5%; } 100%{ top:105%; } }
+    </style>
+</head>
+<body>
+    <div class="scan-line"></div>
+    <div class="container">
+        <h1 class="glitch">RESTRICTED ACCESS</h1>
+        <p style="font-family:'Courier New'; font-size:0.8rem; margin-bottom:2rem;">AUTHORIZED PERSONNEL ONLY</p>
+        <div id="login-form">
+            <div class="form-group">
+                <label>USERNAME</label>
+                <input type="text" id="username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>PASSWORD</label>
+                <input type="password" id="password">
+            </div>
+            <button onclick="attemptLogin()">AUTHENTICATE</button>
+        </div>
+        <div id="otp-form" class="hidden">
+            <p style="color:#fff; margin-bottom:1rem;">ENTER SECURITY CODE SENT TO REGISTERED DEVICE</p>
+            <div class="form-group">
+                <label>OTP CODE</label>
+                <input type="text" id="otp" placeholder="000000" maxlength="6" style="text-align:center; letter-spacing:5px; font-size:1.2rem;">
+            </div>
+            <button onclick="verifyOtp()">VERIFY IDENTITY</button>
+        </div>
+        <p id="error-display" class="error-msg"></p>
+    </div>
+    <script>
+        async function attemptLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDisplay = document.getElementById('error-display');
+            errorDisplay.style.display = 'none';
+            if(!username || !password) { showError("CREDENTIALS REQUIRED"); return; }
+            try {
+                const response = await fetch('/api/admin/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ username, password }) });
+                const data = await response.json();
+                if(response.ok) {
+                    document.getElementById('login-form').classList.add('hidden');
+                    document.getElementById('otp-form').classList.remove('hidden');
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') { showError("OTP Sent! Check server logs/file. (Dev Mode)", '#00ff00'); }
+                    else { showError(data.message, '#00ff00'); }
+                } else { showError(data.error || "ACCESS DENIED"); }
+            } catch (e) { showError("CONNECTION FAILURE"); }
+        }
+        async function verifyOtp() {
+            const username = document.getElementById('username').value;
+            const otp = document.getElementById('otp').value;
+            try {
+                const response = await fetch('/api/admin/verify-otp', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ username, otp }) });
+                const data = await response.json();
+                if(response.ok && data.redirect) { window.location.href = data.redirect; }
+                else { showError(data.error || "INVALID OTP"); }
+            } catch (e) { showError("CONNECTION FAILURE"); }
+        }
+        function showError(msg, color='#ff4444') {
+            const el = document.getElementById('error-display');
+            el.innerText = msg; el.style.color = color; el.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

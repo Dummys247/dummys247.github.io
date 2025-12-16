@@ -1,0 +1,15 @@
+mirror_script.py
+mirror_log.txt
+summon_demon.ps1
+deploy_to_github.ps1
+push_to_live.ps1
+start_server.py
+deploy_backups/
+www/
+deploy.log
+__pycache__/
+.vscode/
+*.pyc
+*.zip
+*.exe
+*.apk

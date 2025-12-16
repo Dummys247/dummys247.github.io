@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Overview – THE 3RD DEMON</title>
+    <meta name="description" content="A high-level overview of Neural Link: architecture, privacy model, and how to connect devices securely without exposing public streams.">
+    <meta name="keywords" content="Neural Link, P2P, WebRTC, Privacy, Encryption, Architecture">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/neural_overview.html" />
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9583919966792475" crossorigin="anonymous"></script>
+    <script src="/config.js"></script>
+    <script>
+        window.GTM_ID = window.GTM_ID || 'GTM-XXXXXXX';
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',window.GTM_ID);
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Neural Overview",
+      "description": "Architecture and privacy model of Neural Link and secure device connections.",
+      "author": { "@type": "Organization", "name": "Hyperinversion LTD" }
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Mono:wght@400;700&display=swap');
+        :root { --primary-red:#ff0000; --dark-red:#500000; --black:#050505; --text:#e0e0e0; }
+        body { margin:0; padding:0; background:var(--black); color:var(--text); font-family:'Roboto Mono', monospace; line-height:1.7; }
+        header { text-align:center; padding:2rem 1rem; border-bottom:2px solid var(--dark-red); background:rgba(0,0,0,0.85); position:sticky; top:0; z-index:10; }
+        .glitch { color:var(--primary-red); font-family:'Creepster', cursive; font-size:2.4rem; margin:0; text-shadow:2px 2px var(--dark-red); }
+        nav { margin-top:1rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+        .nav-link { color:var(--primary-red); text-decoration:none; font-weight:bold; text-transform:uppercase; border:1px solid var(--primary-red); padding:0.5rem 0.9rem; transition:all .2s; font-size:.9rem; }
+        .nav-link:hover { background:var(--primary-red); color:#000; box-shadow:0 0 10px var(--dark-red); }
+        .container { max-width:1100px; margin:0 auto; padding:2rem 1rem; }
+        .ad-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1rem; margin:1.5rem 0; }
+        .ad-box { min-height:250px; background:#0a0a0a; border:1px dashed #333; display:flex; align-items:center; justify-content:center; padding:.75rem; }
+        h1 { font-size:1.8rem; color:var(--primary-red); margin:0 0 1rem 0; }
+        h2 { font-size:1.3rem; color:var(--primary-red); margin:2rem 0 0.75rem; }
+        h3 { font-size:1.05rem; color:#ccc; margin:1rem 0 0.5rem; }
+        .cta { display:flex; gap:0.8rem; margin-top:1rem; flex-wrap:wrap; }
+        .btn { background:#330000; color:#ff0000; border:1px solid #ff0000; padding:0.6rem 1rem; cursor:pointer; text-transform:uppercase; font-weight:bold; }
+        .btn:hover { background:#ff0000; color:#000; box-shadow:0 0 12px #ff0000; }
+        .img-wrap { text-align:center; margin:1.25rem 0; }
+        .img-wrap img { max-width:100%; width:700px; height:auto; border:2px solid var(--primary-red); box-shadow:0 0 20px var(--dark-red); }
+        footer { text-align:center; padding:2rem 1rem; border-top:1px solid #333; margin-top:2rem; font-size:.85rem; color:#888; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+        <h1 class="glitch">NEURAL OVERVIEW</h1>
+        <nav>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="features_guide.html">Features</a>
+            <a class="nav-link" href="builder_agent.html">Builder</a>
+            <a class="nav-link" href="neural_overview.html" style="background:var(--dark-red); color:white;">Neural Overview</a>
+            <a class="nav-link" href="p2p_file_sharing.html">P2P Files</a>
+            <a class="nav-link" href="diagnostics_analytics.html">Diagnostics</a>
+            <a class="nav-link" href="voice_command.html">Voice</a>
+            <a class="nav-link" href="vision_system.html">Vision</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="ad-grid">
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <h1>Secure P2P Connections Without Public Streams</h1>
+        <p>
+            Neural Link is a secure peer‑to‑peer architecture built on modern WebRTC transport, DTLS encryption, and adaptive network telemetry. It enables low‑latency, device‑to‑device sessions for streaming, file transfer, and collaborative analysis. The public preview is intentionally disabled for external access to protect users from unintended exposure. This overview explains how the system connects locally, how encryption is enforced, and how device telemetry helps to optimize the experience for varied network conditions.
+        </p>
+        <p>
+            The connection flow starts with a short‑lived signaling exchange, where devices exchange SDP offers, answers, and ICE candidates. Once connectivity is established, DTLS secures the media and data channels, and SRTP handles encryption for audio/video streams. A dedicated metrics channel reports round‑trip time and bitrate using WebRTC stats APIs, so that users can see and manage quality. The system is designed for fair resource usage: camera constraints are set for 720p at 30fps by default, balancing visual clarity with reliable throughput.
+        </p>
+        <p>
+            Privacy is enforced with strict host checks and access policies. External requests to the interactive page are blocked by default; only local hosts can open the interactive session. The overview page provides guidance and diagrams so users understand how to configure local tests and connect companion devices. When users are ready to move beyond local access, the recommended path is to set up a named tunnel or private VPN with explicit capabilities, rather than publishing live media streams to the open internet.
+        </p>
+        <p>
+            The architecture is modular. The same data channel used for metrics can carry small control messages, such as workflow triggers for recording or snapshots. The application layers log these events via analytics so that the Builder Agent can monitor performance and generate actionable recommendations. Together, the approach combines encryption, observability, and policy controls to deliver an experience that is both secure and understandable.
+        </p>
+        <div class="img-wrap">
+            <img src="assets/3rd_demon.jpg" alt="Neural Link Architecture Diagram">
+        </div>
+        <h2>Capabilities</h2>
+        <h3>Encrypted Media and Data</h3>
+        <p>DTLS‑SRTP protects audio/video streams; data channels support secure control messages and metrics.</p>
+        <h3>Adaptive Quality</h3>
+        <p>Uses browser stats to monitor bitrate and RTT, adjusting constraints when necessary.</p>
+        <h3>Local‑Only Preview</h3>
+        <p>Interactive page is restricted by host; overview documents best practices for secure access.</p>
+        <h2>Get Started</h2>
+        <div class="cta">
+            <a class="btn" href="index.html">Return Home</a>
+            <a class="btn" href="builder_agent.html">Explore Builder</a>
+            <a class="btn" href="p2p_file_sharing.html">Try P2P Files</a>
+        </div>
+        <div class="ad-grid">
+            <div class="ad-box">
+                <ins class="adsbygoogle" style="display:block;min-width:300px;min-height:250px" data-ad-client="ca-pub-9583919966792475" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <footer>© 2025 Hyperinversion LTD. All rights reserved.</footer>
+</body>
+</html>

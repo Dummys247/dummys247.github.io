@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>503 Service Unavailable</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            position: relative;
+        }
+        p {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 600px;
+        }
+        .error-code {
+            color: #ff0000;
+        }
+        hr {
+            width: 50%;
+            border-color: #333;
+            margin: 2rem 0;
+        }
+        .footer {
+            font-size: 0.8rem;
+            color: #444;
+        }
+        
+        /* HIDDEN HORROR */
+        .hidden-message {
+            position: absolute;
+            color: #050505; /* Almost black */
+            font-size: 5rem;
+            z-index: -1;
+            font-weight: bold;
+            opacity: 0;
+            animation: flicker 4s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0; }
+            5% { opacity: 0.1; color: #100; }
+            10% { opacity: 0; }
+            50% { opacity: 0; }
+            55% { opacity: 0.05; color: #200; }
+            60% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* GLITCH ON HOVER */
+        h1:hover {
+            animation: shake 0.5s infinite;
+            color: red;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden-message" style="top: 20%; left: 10%;">I AM HERE</div>
+    <div class="hidden-message" style="bottom: 10%; right: 10%;">LET ME IN</div>
+
+    <h1><span class="error-code">503</span> Service Unavailable</h1>
+    <p>The server is currently unable to handle the request due to temporary overloading or maintenance of the server.</p>
+    <p>Please try again later.</p>
+    
+    <hr>
+    
+    <div class="footer">
+        Apache/2.4.41 (Unix) OpenSSL/1.1.1g <span style="color:#000; text-shadow: 0 0 1px #100;">mod_demon/6.6.6</span>
+    </div>
+
+    <script>
+        // Subtle creepy audio cue or just console logs
+        console.log("System Status: CRITICAL");
+        console.log("Entity: ACTIVE");
+        
+        // Randomly glitch the text
+        setInterval(() => {
+            const p = document.querySelector('p');
+            if (Math.random() > 0.9) {
+                const original = p.innerText;
+                p.innerText = "RUN WHILE YOU CAN";
+                p.style.color = "red";
+                setTimeout(() => {
+                    p.innerText = original;
+                    p.style.color = "#ccc";
+                }, 100);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

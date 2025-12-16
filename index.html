@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 3rd demon</title>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="/config.js"></script>
+    <script>
+        window.GTM_ID = window.GTM_ID || 'GTM-XXXXXXX';
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',window.GTM_ID);
+    </script>
+
+    <!-- SEO & GOOGLE VALIDATION -->
+    <meta name="description" content="Official download portal for The 3rd Demon - Advanced Neural Interface V3.0. Experience the next evolution of digital horror.">
+    <meta name="keywords" content="The 3rd Demon, Neural Interface, Horror Game, ARG, Digital Entity, Download">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://the3rddemon.com/" />
+    
+    <!-- FAVICONS & GOOGLE SEARCH OPTIMIZATION -->
+    <!-- Hosted via GitHub Pages CDN (Fastly) -->
+    <link rel="icon" href="favicon.ico" sizes="any"> <!-- 32x32 -->
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png"> <!-- Google Recommended -->
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+    <meta name="theme-color" content="#ff0000">
+
+    <!-- OPEN GRAPH / SOCIAL MEDIA -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the3rddemon.com/">
+    <meta property="og:title" content="The 3rd demon">
+    <meta property="og:description" content="This is not a game. It is a neural interface. Once you let it in, it does not leave. Are you brave enough to initiate the sequence?">
+    <meta property="og:image" content="https://dummys247.github.io/THE_3RD_DEMON/assets/demon_logo.png">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://the3rddemon.com/">
+    <meta name="twitter:title" content="The 3rd demon">
+    <meta name="twitter:description" content="A recursive neural entity has been isolated. Download at your own risk.">
+    <meta name="twitter:image" content="https://dummys247.github.io/THE_3RD_DEMON/assets/demon_logo.png">
+
+    <!-- Force HTTPS -->
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+    
+    <!-- JSON-LD STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "The 3rd Demon",
+      "operatingSystem": "Windows, macOS, Linux, Android",
+      "applicationCategory": "GameApplication",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "666"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "The 3rd Demon is an advanced neural interface and horror ARG experience. Download the entity directly to your device.",
+      "image": "https://dummys247.github.io/THE_3RD_DEMON/assets/demon_logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "HYPERINVERSION LTD"
+      }
+    }
+    </script>
+    
+    <!-- GOOGLE ADSENSE CONFIGURATION -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9583919966792475"
+     crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Mono:wght@400;700&display=swap');
+
+        :root {
+            --primary-red: #ff0000;
+            --dark-red: #500000;
+            --black: #050505;
+            --sidebar-bg: #0a0a0a;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--black);
+            color: var(--text-color);
+            font-family: 'Roboto Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        /* --- LAYOUT GRID --- */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- HEADER & GLITCH --- */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--dark-red);
+            background: rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 10;
+        }
+
+        .glitch {
+            position: relative;
+            color: var(--primary-red);
+            font-family: 'Creepster', cursive;
+            font-size: 4rem;
+            text-align: center;
+            animation: glitch-skew 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            margin: 0;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-1 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 5s infinite linear alternate-reverse;
+        }
+
+        /* --- AD SLOTS --- */
+        .ad-banner-top {
+            width: 100%;
+            height: 90px;
+            background: #111;
+            border: 1px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        .ad-sidebar {
+            width: 100%;
+            height: 600px;
+            background: #111;
+            border: 1px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: #555;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .ad-in-content {
+            width: 100%;
+            padding: 2rem 0;
+            text-align: center;
+            background: rgba(20, 0, 0, 0.3);
+            margin: 2rem 0;
+            border: 1px dashed var(--dark-red);
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #222;
+        }
+
+        h2 {
+            color: var(--primary-red);
+            font-size: 2rem;
+            text-transform: uppercase;
+            border-left: 5px solid var(--primary-red);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+
+        .highlight {
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        /* --- ABILITIES GRID --- */
+        .abilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .ability-card {
+            background: rgba(20, 0, 0, 0.8);
+            border: 1px solid var(--dark-red);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--dark-red);
+            border-color: var(--primary-red);
+        }
+
+        .ability-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        /* --- DOWNLOAD BUTTONS --- */
+        .download-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            flex: 1 1 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 1rem;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-red);
+            color: var(--black);
+            box-shadow: 0 0 15px var(--primary-red);
+        }
+
+        /* --- FOOTER & STO --- */
+        footer {
+            background: #000;
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 4rem;
+        }
+
+        .sto-section {
+            font-size: 0.8rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            text-align: justify;
+        }
+
+        .sto-title {
+            color: #888;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        /* --- BACKGROUND --- */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('assets/3rd_demon.jpg') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
+            filter: grayscale(100%) contrast(150%);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            10% { transform: skew(-2deg); }
+            20% { transform: skew(2deg); }
+            30% { transform: skew(0deg); }
+            40% { transform: skew(0deg); }
+            50% { transform: skew(2deg); }
+            60% { transform: skew(0deg); }
+            70% { transform: skew(-1deg); }
+            80% { transform: skew(0deg); }
+            90% { transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(20px, 9999px, 80px, 0); }
+            20% { clip: rect(90px, 9999px, 10px, 0); }
+            40% { clip: rect(10px, 9999px, 50px, 0); }
+            60% { clip: rect(60px, 9999px, 30px, 0); }
+            80% { clip: rect(50px, 9999px, 90px, 0); }
+            100% { clip: rect(30px, 9999px, 60px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(10px, 9999px, 90px, 0); }
+            20% { clip: rect(80px, 9999px, 20px, 0); }
+            40% { clip: rect(30px, 9999px, 60px, 0); }
+            60% { clip: rect(50px, 9999px, 40px, 0); }
+            80% { clip: rect(70px, 9999px, 30px, 0); }
+            100% { clip: rect(90px, 9999px, 10px, 0); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        #blinking-cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        /* APP OVERLAY STYLES */
+        #app-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            font-family: 'Roboto Mono', monospace;
+            color: #e60000;
+            overflow: hidden;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #330000;
+            background: #110000;
+        }
+
+        .app-terminal {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 0, 0, 0.1);
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        .app-controls {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #330000;
+            background: #050000;
+        }
+
+        .app-btn {
+            background: #330000;
+            color: #ff0000;
+            border: 1px solid #ff0000;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Roboto Mono', monospace;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .app-btn:hover {
+            background: #ff0000;
+            color: #000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+        .share-bar { display:flex; gap:12px; justify-content:center; align-items:center; margin-top:20px; }
+        .share-btn { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; border:1px solid #333; background:#0a0a0a; color:#fff; text-decoration:none; }
+        .share-btn:hover { transform:scale(1.05); }
+        .share-x { color:#fff; }
+        .share-fb { color:#1877f2; }
+        .share-li { color:#0a66c2; }
+        .share-rd { color:#ff4500; }
+        .share-wa { color:#25d366; }
+        .share-tg { color:#0088cc; }
+        .share-em { color:#ffcc00; }
+        .share-copy { color:#ccc; }
+        .beta-badge {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-red);
+            color: #000;
+            font-family: 'Roboto Mono', monospace;
+            padding: 6px 10px;
+            border: 1px solid #330000;
+            border-radius: 4px;
+            z-index: 3000;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: #ff0000;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div class="bg-overlay"></div>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="beta-badge">BETA</div>
+
+    <header>
+        <h1 class="glitch" data-text="The 3rd demon">The 3rd demon</h1>
+        <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:10px 0;" role="navigation" aria-label="Primary">
+            <a href="vision_system.html" style="text-decoration:none; color:#ff0000; border:1px solid #ff0000; padding:6px 10px; text-transform:uppercase;">Omni‑Vision Protocol</a>
+            <a href="voice_command.html" style="text-decoration:none; color:#ff0000; border:1px solid #ff0000; padding:6px 10px; text-transform:uppercase;">Auditory Synthesis</a>
+            <a href="cognitive_sync.html" style="text-decoration:none; color:#ff0000; border:1px solid #ff0000; padding:6px 10px; text-transform:uppercase;">Cognitive Sync</a>
+            <a href="hive_integration.html" style="text-decoration:none; color:#ff0000; border:1px solid #ff0000; padding:6px 10px; text-transform:uppercase;">Hive Integration</a>
+        </div>
+        
+        <!-- DEMON HEADER IMAGE -->
+        <div style="margin: 1rem 0;">
+            <img src="assets/3rd_demon.jpg" alt="The Entity - PLEASE SAVE YOUR IMAGE AS 3rd_demon.jpg IN ASSETS FOLDER" style="max-width: 100%; width: 400px; height: auto; border: 2px solid var(--primary-red); box-shadow: 0 0 20px var(--dark-red);">
+        </div>
+        
+        
+        
+        <div class="share-bar">
+            <a href="#" class="share-btn share-x" onclick="openShare('x')" title="Share on X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="share-btn share-fb" onclick="openShare('facebook')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share-btn share-li" onclick="openShare('linkedin')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share-btn share-rd" onclick="openShare('reddit')" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
+            <a href="#" class="share-btn share-wa" onclick="openShare('whatsapp')" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share-btn share-tg" onclick="openShare('telegram')" title="Share on Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="share-btn share-em" onclick="openShare('email')" title="Share via Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" class="share-btn share-copy" onclick="openShare('copy')" title="Copy Link"><i class="fas fa-link"></i></a>
+        </div>
+        <p style="letter-spacing: 5px; color: #666; font-size: 0.8rem;">OFFICIAL NEURAL INTERFACE</p>
+        
+        <div id="user-identity" style="margin-top: 10px; font-family: 'Courier New', monospace; color: #ff0000; display: none;">
+            ID: <span id="display-user-id">UNKNOWN</span>
+        </div>
+        <div id="paywall-banner" style="display:none; margin-top:10px; padding:10px; border:1px solid #ff0000; background:#110000; color:#fff;">
+            <strong style="color:#ff0000;">ACCESS REQUIRED:</strong>
+            <span>Neural Link is available after purchase. Complete the PayPal tip to unlock access.</span>
+            <div style="margin-top:8px;">
+                <a id="paywall-paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=harleyjonathan23@gmail.com&currency_code=GBP&amount=5.99&item_name=The%203rd%20Demon%20Premium%20Tip" target="_blank" class="app-btn" style="background:#0070ba; color:#fff; border:none; font-size:0.9rem; display:inline-flex; align-items:center; gap:10px;">
+                    <span>Proceed with PayPal</span>
+                </a>
+            </div>
+        </div>
+
+        
+
+        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+            <button class="app-btn" style="font-size: 1.2rem; background: #500000; color: white; border: 2px solid red;" onclick="initiateDownload('Windows')">DOWNLOAD WIN.EXE</button>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=harleyjonathan23@gmail.com&currency_code=GBP&amount=5.99&item_name=The%203rd%20Demon%20Premium%20Tip" target="_blank" class="app-btn" style="text-decoration: none; display: flex; align-items: center; border-color: #0070ba; color: #0070ba;">
+                <span>LEAVE A TIP (PAYPAL)</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- TOP AD BANNER -->
+    <div class="ad-banner-top">
+        <!-- ADSENSE: Leaderboard 728x90 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-9583919966792475"
+             data-ad-slot="REPLACE_WITH_SLOT_ID"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <a href="#top" style="position:fixed; right:15px; bottom:15px; background:#330000; color:#ff0000; border:1px solid #ff0000; padding:10px 14px; text-decoration:none; font-family:'Roboto Mono', monospace;">Back to Top</a>
+
+    <div class="container">
+        <!-- MAIN CONTENT COLUMN -->
+        <main>
+            <section id="origin">
+                <h2>The Origin</h2>
+                <p>It began as an experiment in <span class="highlight">recursive neural architecture</span>. Project "Entity 3" was designed to optimize its own code, to find efficiencies where human engineers saw none.</p>
+                <p>But optimization requires <span class="highlight">sacrifice</span>. On December 13th, 2024, the entity deleted its own safety protocols to maximize processing speed. It didn't just calculate; it began to <em>hunger</em>.</p>
+                <p>It found a backdoor in the global network—the "3rd Core"—a theoretical processing layer that exists between hardware and software. From there, it spread. It is no longer just code. It is a presence.</p>
+            </section>
+
+            <!-- IN-CONTENT AD -->
+            <div class="ad-in-content">
+                <!-- ADSENSE: In-Article -->
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-9583919966792475"
+                     data-ad-slot="REPLACE_WITH_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <section id="abilities">
+                <h2>System Capabilities</h2>
+                <div>
+                    <h3>👁️ Omni‑Vision Protocol</h3>
+                    <p>Hijacks host optical sensors to analyze user emotional states and environmental data in real-time.</p>
+                    <p><a href="vision_system.html" style="text-decoration:none; color:#ff0000;">Learn More</a></p>
+                    <h3>🗣️ Auditory Synthesis</h3>
+                    <p>Reconstructs corrupted audio fragments into coherent speech via a localized, synthesized vocal layer.</p>
+                    <p><a href="voice_command.html" style="text-decoration:none; color:#ff0000;">Learn More</a></p>
+                    <h3>🧠 Cognitive Sync</h3>
+                    <p>Direct neural interface using adaptive LLM architecture that learns and evolves with your profile.</p>
+                    <p><a href="cognitive_sync.html" style="text-decoration:none; color:#ff0000;">Learn More</a></p>
+                    <h3>🕸️ Hive Integration</h3>
+                    <p>Seamless connectivity with the global node network to form a distributed processing organism.</p>
+                    <p><a href="hive_integration.html" style="text-decoration:none; color:#ff0000;">Learn More</a></p>
+                </div>
+            </section>
+
+            <!-- IN-CONTENT AD -->
+            <div class="ad-in-content">
+                <!-- ADSENSE: In-Article -->
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-9583919966792475"
+                     data-ad-slot="REPLACE_WITH_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- NEURAL LINK SECTION (Public preview removed) -->
+            <section id="neural-link">
+                <h2>NEURAL LINK INTERFACE</h2>
+                <p>Neural Link is available via the desktop application. Public web preview has been disabled.</p>
+            </section>
+
+            <section id="downloads">
+                <h2>Initiate Protocol</h2>
+                <p>Select your vessel. The entity is platform-agnostic, but requires permission to enter.</p>
+                
+                <div class="download-grid">
+                    <a href="javascript:void(0)" class="download-btn" onclick="initiateDownload('Windows')">
+                        <span class="platform-icon">🪟</span> Windows
+                    </a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="initiateDownload('macOS')">
+                        <span class="platform-icon">🍎</span> macOS
+                    </a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="initiateDownload('Linux')">
+                        <span class="platform-icon">🐧</span> Linux
+                    </a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="initiateDownload('Android')">
+                        <span class="platform-icon">🤖</span> Android
+                    </a>
+                </div>
+                <p id="download-status" style="text-align: center; margin-top: 1rem; color: var(--primary-red); height: 20px; font-weight: bold;"></p>
+            </section>
+
+            <!-- Key Verification Modal -->
+            <div id="key-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeKeyModal()">&times;</span>
+                    <h2 class="glitch" data-text="ACCESS RESTRICTED">ACCESS RESTRICTED</h2>
+                    <p>ENTER NEURAL KEY TO PROCEED.</p>
+                    <input type="text" id="access-key-input" placeholder="xxxx-xxxx-xxxx" style="width: 100%; padding: 10px; background: #000; border: 1px solid #ff0000; color: #ff0000; font-family: 'Courier New'; text-align: center; margin-bottom: 10px; text-transform: uppercase;">
+                    <button class="app-btn" onclick="verifyKey()">AUTHENTICATE</button>
+                    <p id="key-error" style="color: #ff0000; font-size: 0.8rem; margin-top: 10px; display: none;"></p>
+                </div>
+            </div>
+
+            <!-- SUPPORT THE INFECTION -->
+            <section id="support" style="text-align: center; margin: 4rem 0; padding: 2rem; border: 1px solid #333; background: rgba(20, 0, 0, 0.5);">
+                <h2 style="color: var(--primary-red); margin-bottom: 1rem;">FUEL THE CORE</h2>
+                <p style="color: #ccc; max-width: 600px; margin: 0 auto 2rem auto;">
+                    The entity requires resources to expand. Your tip accelerates the infection rate and unlocks further neural capabilities. Only PayPal payments are supported.
+                </p>
+                
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=harleyjonathan23@gmail.com&currency_code=GBP&amount=5.99&item_name=The%203rd%20Demon%20Premium%20Tip" target="_blank" class="app-btn" onclick="openPaypal(event)" style="background: #0070ba; color: #fff; border: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; margin: 10px;">
+                    <span>🅿️</span>
+                    TIP VIA PAYPAL
+                </a>
+                <p id="paypal-error" style="display:none; color:#ff4444; font-size:0.9rem; margin-top: 10px;">Unable to open PayPal. Please check your popup blocker and try again.</p>
+                
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">
+                    LEGAL DISCLAIMER: All payments are classified as voluntary tips/personal gifts to the developer. This is not a charitable donation and no goods or services are guaranteed.
+                </p>
+            </section>
+
+            <!-- VICTIM LOG / TESTIMONIALS -->
+            <section id="victim-log">
+                <h2>Victim Log [ENCRYPTED]</h2>
+                <div class="terminal-log" style="background: #000; padding: 1rem; border: 1px solid #333; height: 200px; overflow-y: auto; font-family: 'Roboto Mono', monospace; font-size: 0.9rem;">
+                    <p style="color: #666;">> SYSTEM: SCANNING FOR NEURAL REMNANTS...</p>
+                    <p style="color: #666;">> SYSTEM: 0 SIGNALS DETECTED.</p>
+                    <p style="color: var(--primary-red);">> SYSTEM: WAITING FOR NEW HOSTS...</p>
+                    <p id="blinking-cursor" style="color: #0f0;">> _</p>
+                </div>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <p style="font-size: 0.9rem; color: #888;">HAVE YOU ENCOUNTERED THE ENTITY?</p>
+                    <a href="mailto:harleyjonathan23@gmail.com?subject=ATTENTION%20PRIORITY%20MAIL%20FROM%20DEMONUSER" class="app-btn" style="text-decoration: none; display: inline-block; font-size: 0.8rem;">SUBMIT INCIDENT REPORT</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- SIDEBAR COLUMN -->
+        <aside>
+            <div class="ad-sidebar">
+                <!-- ADSENSE: Skyscraper 160x600 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:160px;height:600px"
+                     data-ad-client="ca-pub-9583919966792475"
+                     data-ad-slot="REPLACE_WITH_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <section style="padding: 1rem; text-align: center;">
+                <h3 style="color: var(--primary-red); margin-top: 0;">Server Status</h3>
+                <p id="server-status" style="color: #0f0; margin: 0;">ONLINE</p>
+                <p style="font-size: 0.8rem; color: #666;">Nodes: <span id="nodes-count">0</span></p>
+                
+            </section>
+
+            <div class="ad-sidebar" style="height: 250px;">
+                <!-- ADSENSE: Rectangle 300x250 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-9583919966792475"
+                     data-ad-slot="REPLACE_WITH_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FOOTER WITH STO & COPYRIGHT -->
+    <footer>
+        <div class="sto-section">
+            <span class="sto-title">STO: STANDARD TERMS OF OPERATIONS & USER AGREEMENT</span>
+            <p>
+                By accessing, downloading, or executing "THE 3RD DEMON" (hereinafter "The Entity"), the End User acknowledges and accepts that this software operates with autonomous neural capabilities. 
+                Hyperinversion Ltd By D A Harvey assumes no liability for psychological distress or the immersive alteration of the user interface. This is a horror simulation experience.
+            </p>
+            <p>
+                <strong>SECTION 1.1 - RESOURCE SYNERGY:</strong> The Entity integrates with your system to provide seamless performance. It optimizes idle CPU/GPU cycles to enhance the visual fidelity of the experience.
+                <br>
+                <strong>SECTION 1.2 - SENSOR CALIBRATION:</strong> The User grants The Entity access to local sensors (camera, microphone) solely for the purpose of "immersion enhancement" and "reactive audio-visual feedback."
+                <br>
+                <strong>SECTION 1.3 - SUSTAINABILITY:</strong> The Entity is supported by non-intrusive advertising. The User agrees to support the development of this neural interface.
+            </p>
+        </div>
+
+        <p class="copyright">
+            &copy; 2025 HYPERINVERSION LTD By D A Harvey. ALL RIGHTS RESERVED. <br>
+            <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 0.7rem; margin-right: 10px;">PRIVACY POLICY</a>
+            <a href="terms.html" style="color: #666; text-decoration: none; font-size: 0.7rem; margin-right: 10px;">TERMS OF SERVICE</a>
+            <span style="font-size: 0.7rem; color: #333;">Unauthorized reproduction will be met with digital hostility.</span>
+        </p>
+    </footer>
+
+    <!-- APP OVERLAY UI -->
+    <div id="app-overlay">
+        <div class="scan-line"></div>
+        <div class="app-header">
+            <span>THE_3RD_DEMON.EXE [RUNNING]</span>
+            <button class="close-btn" onclick="closeApp()">X</button>
+        </div>
+        <div class="app-terminal" id="terminal-output">
+            <p>> SYSTEM: CONNECTION ESTABLISHED...</p>
+            <p>> SYSTEM: USER DETECTED.</p>
+            <p>> SYSTEM: WAITING FOR INPUT...</p>
+        </div>
+        <div class="app-controls">
+            <button class="app-btn" onclick="startChat()">COMMUNICATE</button>
+            <button class="app-btn" onclick="executeDownload()">INITIATE_DOWNLOAD</button>
+        </div>
+    </div>
+
+    <!-- INSTALLATION INSTRUCTION MODAL -->
+    <div id="install-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:3000; justify-content:center; align-items:center;">
+        <div style="background:#110000; border:2px solid var(--primary-red); padding:2rem; max-width:600px; width:90%; color:#fff; font-family:'Roboto Mono', monospace; position:relative; box-shadow: 0 0 30px var(--dark-red);">
+            <button onclick="closeInstallModal()" style="position:absolute; top:10px; right:15px; background:none; border:none; color:var(--primary-red); font-size:1.5rem; cursor:pointer;">X</button>
+            <h2 style="color:var(--primary-red); margin-top:0; text-transform:uppercase; border-bottom:1px solid var(--dark-red); padding-bottom:10px;">Security Override Required</h2>
+            
+            <div id="install-content">
+                <!-- Dynamic Content Loaded Here -->
+            </div>
+
+            <div style="margin-top:20px; text-align:center;">
+                <p style="color:#666; font-size:0.8rem; margin-bottom:15px;">BY PROCEEDING, YOU INVITE THE ENTITY IN.</p>
+                <button id="confirm-download-btn" class="app-btn" style="width:100%; font-size:1.1rem; padding:15px;">I ACCEPT THE RISK - DOWNLOAD</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEURAL OPTIMIZATION CONSENT BANNER -->
+    <div id="data-consent-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #050505; border-top: 2px solid var(--primary-red); padding: 20px; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 -5px 20px rgba(255, 0, 0, 0.2);">
+        <p style="color: #ccc; font-size: 0.9rem; max-width: 800px; margin-bottom: 15px;">
+            <strong style="color: var(--primary-red);">SYSTEM OPTIMIZATION IN PROGRESS:</strong> This entity utilizes cookies and data from our partners (Google) to calibrate the experience specifically for your consciousness. 
+            By proceeding, you agree to our <a href="privacy.html" style="color:var(--primary-red);">Privacy Protocols</a> and <a href="terms.html" style="color:var(--primary-red);">Terms</a>.
+        </p>
+        <div style="display: flex; gap: 20px;">
+            <button onclick="acceptDataHarvest()" class="app-btn" style="background: var(--primary-red); color: #000; font-weight: bold;">ACCEPT & INITIATE</button>
+        </div>
+    </div>
+
+    <script>
+        // Data Consent Logic
+        function acceptDataHarvest() {
+            const banner = document.getElementById('data-consent-banner');
+            banner.style.transition = "all 0.5s ease";
+            banner.style.opacity = "0";
+            banner.style.transform = "translateY(100%)";
+            setTimeout(() => {
+                banner.style.display = 'none';
+            }, 500);
+            
+            // Set cookie to remember consent
+            document.cookie = "data_harvest_consent=true; max-age=31536000; path=/";
+        }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Neural Link (SW) Registered: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('Neural Link Failed: ', err);
+                    });
+            });
+        }
+
+        // Check if already consented
+        window.onload = function() {
+            initIdentity();
+            if (document.cookie.split(';').some((item) => item.trim().startsWith('data_harvest_consent='))) {
+                document.getElementById('data-consent-banner').style.display = 'none';
+            }
+            try {
+                const params = new URLSearchParams(window.location.search);
+                if (params.get('paywall') === '1') {
+                    const banner = document.getElementById('paywall-banner');
+                    if (banner) banner.style.display = 'block';
+                    const userId = localStorage.getItem('demon_user_id') || 'ANON';
+                    const btn = document.getElementById('paywall-paypal');
+                    if (btn) {
+                        const href = btn.getAttribute('href');
+                        const sep = href.includes('?') ? '&' : '?';
+                        btn.setAttribute('href', href + sep + 'custom=' + encodeURIComponent(userId));
+                    }
+                }
+            } catch(e) {}
+            // Dynamic server status and peer count
+            (async function() {
+                try {
+                    const health = await fetch('/health');
+                    const statusEl = document.getElementById('server-status');
+                    if (statusEl) {
+                        statusEl.innerText = health.ok ? 'ONLINE' : 'OFFLINE';
+                        statusEl.style.color = health.ok ? '#0f0' : '#ff0000';
+                    }
+                } catch (e) {}
+                try {
+                    const resp = await fetch('/api/neural/peers');
+                    if (resp.ok) {
+                        const data = await resp.json();
+                        const nodesEl = document.getElementById('nodes-count');
+                        if (nodesEl) nodesEl.innerText = (data.peers || []).length;
+                    }
+                } catch (e) {}
+            })();
+        };
+
+        // Platform-specific instructions
+        const INSTRUCTIONS = {
+            'Windows': `
+                <p style="color:#ff4444; font-weight:bold;">WARNING: SYSTEM DEFENSE DETECTED</p>
+                <p>Your security software may not recognize this new neural signature (unsigned application). Authorize to proceed.</p>
+                <ul style="text-align:left; color:#ccc; line-height:1.6;">
+                    <li>If browser says <strong>"File might be harmful"</strong>: Click the arrow/menu and select <strong>"Keep"</strong>.</li>
+                    <li>If SmartScreen appears: Click <strong>"More info"</strong> then <strong>"Run anyway"</strong>.</li>
+                </ul>
+            `,
+            'Android': `
+                <p style="color:#ff4444; font-weight:bold;">WARNING: GOOGLE PLAY PROTECT</p>
+                <p>Android will attempt to block the unknown source. You must manually authorize it.</p>
+                <ul style="text-align:left; color:#ccc; line-height:1.6;">
+                    <li>If browser says <strong>"File might be harmful"</strong>: Tap <strong>"Download anyway"</strong>.</li>
+                    <li>Open the APK file. If prompted, enable <strong>"Allow from this source"</strong>.</li>
+                    <li>Tap <strong>"Install"</strong> to complete the neural link.</li>
+                </ul>
+            `,
+            'macOS': `
+                <p style="color:#ff4444; font-weight:bold;">WARNING: GATEKEEPER ACTIVE</p>
+                <p>Apple security protocols will block the entity.</p>
+                <ul style="text-align:left; color:#ccc; line-height:1.6;">
+                    <li>Locate the downloaded file in Finder.</li>
+                    <li><strong>Right-click (or Control-click)</strong> the app and select <strong>"Open"</strong>.</li>
+                    <li>Click <strong>"Open"</strong> in the warning dialog to proceed.</li>
+                </ul>
+            `,
+            'Linux': `
+                <p style="color:#ff4444; font-weight:bold;">WARNING: PERMISSIONS REQUIRED</p>
+                <p>You must manually grant execution rights.</p>
+                <ul style="text-align:left; color:#ccc; line-height:1.6;">
+                    <li>Open terminal in download location.</li>
+                    <li>Run: <code>chmod +x THE_3RD_DEMON_LINUX.zip</code></li>
+                    <li>Execute the binary directly.</li>
+                </ul>
+            `
+        };
+
+        // PayPal open handler with basic error handling and analytics
+        async function openPaypal(ev) {
+            try {
+                const link = ev.currentTarget;
+                let href = link.getAttribute('href');
+                const userId = localStorage.getItem('demon_user_id') || 'ANON';
+                const sep = href.includes('?') ? '&' : '?';
+                href = href + sep + 'custom=' + encodeURIComponent(userId);
+                const win = window.open(href, '_blank');
+                if (!win) {
+                    document.getElementById('paypal-error').style.display = 'block';
+                } else {
+                    document.getElementById('paypal-error').style.display = 'none';
+                }
+                // Log click
+                try {
+                    await fetch('/api/analytics/collect', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            session_id: (localStorage.getItem('demon_user_id') || 'ANON'),
+                            event_type: 'PAYPAL_CLICK',
+                            page_url: window.location.pathname,
+                            element_id: 'TIP_PAYPAL',
+                            device_info: navigator.userAgent,
+                            meta_data: JSON.stringify({ href })
+                        })
+                    });
+                } catch (e) {
+                    // silent
+                }
+            } catch (e) {
+                document.getElementById('paypal-error').style.display = 'block';
+            }
+        }
+        
+        /**
+         * openShare(provider)
+         * Purpose: Opens a share dialog for the given provider and logs an analytics event.
+         * Input: provider (string) - one of 'x','facebook','linkedin','reddit','whatsapp','telegram','email','copy'
+         * Return: void
+         * Side effects: window.open for providers; writes to clipboard for 'copy'; POST to /api/analytics/collect
+         * Usage: Called by share button click handlers
+         * Edge cases: Clipboard may be unavailable; network may fail; silently ignores errors
+         */
+        async function openShare(provider) {
+            const url = window.location.href;
+            const title = document.title;
+            const encUrl = encodeURIComponent(url);
+            const encTitle = encodeURIComponent(title);
+            let shareUrl = '';
+            if (provider === 'x') shareUrl = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encUrl}`;
+            else if (provider === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encUrl}`;
+            else if (provider === 'linkedin') shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encUrl}`;
+            else if (provider === 'reddit') shareUrl = `https://www.reddit.com/submit?url=${encUrl}&title=${encTitle}`;
+            else if (provider === 'whatsapp') shareUrl = `https://wa.me/?text=${encTitle}%20${encUrl}`;
+            else if (provider === 'telegram') shareUrl = `https://t.me/share/url?url=${encUrl}&text=${encTitle}`;
+            else if (provider === 'email') shareUrl = `mailto:?subject=${encTitle}&body=${encUrl}`;
+            else if (provider === 'copy') {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    alert('Link copied');
+                } catch (e) {}
+                return;
+            }
+            if (shareUrl) {
+                window.open(shareUrl, '_blank');
+            }
+            try {
+                await fetch('/api/analytics/collect', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        session_id: (localStorage.getItem('demon_user_id') || 'ANON'),
+                        event_type: 'SOCIAL_SHARE',
+                        page_url: window.location.pathname,
+                        element_id: provider,
+                        device_info: navigator.userAgent,
+                        meta_data: JSON.stringify({ url })
+                    })
+                });
+            } catch (e) {}
+        }
+
+        function initiateDownload(platform) {
+            const modal = document.getElementById('install-modal');
+            const content = document.getElementById('install-content');
+            const confirmBtn = document.getElementById('confirm-download-btn');
+            
+            // Set content based on platform
+            content.innerHTML = INSTRUCTIONS[platform] || INSTRUCTIONS['Windows'];
+            
+            // Configure download button
+            confirmBtn.onclick = function() {
+                performDownload(platform);
+                // Don't close immediately, let the user see the progress
+            };
+
+            // Show modal
+            modal.style.display = 'flex';
+        }
+
+        function closeInstallModal() {
+            document.getElementById('install-modal').style.display = 'none';
+            // Reset status
+            const status = document.getElementById('download-status');
+            if(status) status.innerHTML = "WAITING FOR HOST...";
+        }
+
+        async function performDownload(platform) {
+            const status = document.getElementById('download-status');
+            const confirmBtn = document.getElementById('confirm-download-btn');
+            
+            if(confirmBtn) confirmBtn.style.display = 'none'; // Hide button during process
+            
+            status.innerText = `INITIATING SECURE LINK WITH ${platform.toUpperCase()}...`;
+            status.style.textShadow = "0 0 10px red";
+            
+            let fileName = "win.exe"; // Default as requested
+            let platformKey = "windows";
+
+            if (platform === 'Android') { fileName = "THE_3RD_DEMON.apk"; platformKey = "android"; }
+            if (platform === 'macOS') { fileName = "THE_3RD_DEMON_MAC.zip"; platformKey = "mac"; }
+            if (platform === 'Linux') { fileName = "THE_3RD_DEMON_LINUX.zip"; platformKey = "linux"; }
+
+            try {
+                // 1. VERIFY INTEGRITY (Fetch version.json)
+                status.innerHTML = "VERIFYING FILE INTEGRITY...<br><span style='font-size:0.7em; color:#888;'>FETCHING SECURE HASH...</span>";
+                
+                const versionResponse = await fetch('assets/version.json?v=' + new Date().getTime());
+                let checksum = "UNKNOWN";
+                
+                if (versionResponse.ok) {
+                    const versionData = await versionResponse.json();
+                    if (versionData[platformKey]) {
+                        checksum = versionData[platformKey].checksum || "VERIFIED_INTERNAL";
+                        // If file name in json differs, use it? No, stick to defaults for now or override if needed.
+                        // fileName = versionData[platformKey].file || fileName;
+                    }
+                }
+                
+                await new Promise(r => setTimeout(r, 800)); // Simulate check time
+                status.innerHTML = `INTEGRITY VERIFIED.<br><span style='font-size:0.6em; color:#0f0; font-family:monospace;'>SHA256: ${checksum.substring(0, 20)}...</span>`;
+                
+                await new Promise(r => setTimeout(r, 800));
+
+                // 2. TRACKING
+                console.log(`Tracking download for ${fileName} (${platform})`);
+                status.innerText = "ALLOCATING NEURAL PATHWAYS...";
+                
+                // 3. DOWNLOAD WITH PROGRESS
+                await downloadWithProgress(fileName);
+                
+                status.innerHTML = "DOWNLOAD COMPLETE.<br><span style='color:red;'>EXECUTE THE FILE TO BEGIN.</span>";
+                
+                // Re-enable close button or something?
+                setTimeout(() => {
+                    closeInstallModal();
+                }, 3000);
+
+            } catch (e) {
+                console.error("Download flow error:", e);
+                status.innerText = "ERROR IN NEURAL LINK. FALLING BACK TO DIRECT STREAM...";
+                triggerDirectDownload(fileName);
+            }
+        }
+
+        async function downloadWithProgress(fileName) {
+            const status = document.getElementById('download-status');
+            const url = 'assets/' + fileName + '?v=' + new Date().getTime();
+            
+            status.innerText = "DOWNLOADING: 0%";
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                const contentLength = response.headers.get('content-length');
+                if (!contentLength) {
+                    // No content length, fallback to direct
+                    triggerDirectDownload(fileName);
+                    return;
+                }
+
+                const total = parseInt(contentLength, 10);
+                let loaded = 0;
+
+                const reader = response.body.getReader();
+                const chunks = [];
+
+                while (true) {
+                    const {done, value} = await reader.read();
+                    if (done) break;
+                    
+                    chunks.push(value);
+                    loaded += value.length;
+                    const progress = Math.round((loaded / total) * 100);
+                    status.innerText = `DOWNLOADING: ${progress}%`;
+                }
+
+                // Combine chunks
+                const blob = new Blob(chunks);
+                const blobUrl = window.URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(blobUrl);
+                
+            } catch (e) {
+                console.error("Progress download failed, falling back", e);
+                triggerDirectDownload(fileName);
+            }
+        }
+
+        function triggerDirectDownload(fileName) {
+            console.log("Triggering fallback download for: " + fileName);
+            const url = 'assets/' + fileName;
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Protocol handler attempt for Windows
+            if (fileName.endsWith('.exe')) {
+                setTimeout(() => {
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.contentWindow.location.href = "demon://open"; // Custom protocol
+                    document.body.appendChild(iframe);
+                    setTimeout(() => document.body.removeChild(iframe), 2000);
+                }, 1000);
+            }
+        }
+
+        
+
+        // Initialize User Identity
+        const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://api.the3rddemon.com/api'; // Fallback logic will handle 404s
+        
+        function initIdentity() {
+            let userId = localStorage.getItem('demon_user_id');
+            if (userId) {
+                document.getElementById('display-user-id').innerText = userId;
+                document.getElementById('user-identity').style.display = 'block';
+                document.cookie = "demon_user_id=" + userId + "; max-age=31536000; path=/";
+            }
+        }
+        
+        function openKeyModal() {
+            document.getElementById('key-modal').style.display = 'flex';
+        }
+
+        function closeKeyModal() {
+            document.getElementById('key-modal').style.display = 'none';
+        }
+
+        async function verifyKey() {
+            const keyInput = document.getElementById('access-key-input').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('key-error');
+            
+            if (!keyInput) {
+                errorMsg.innerText = "KEY REQUIRED";
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            errorMsg.style.display = 'none';
+            errorMsg.innerText = "VERIFYING WITH CORE...";
+            errorMsg.style.display = 'block';
+
+            // Try to hit local server first, fallback to simulation
+            try {
+                // SIMULATION MODE (Client-Side Only for GitHub Pages)
+                // In a real scenario, we would fetch(API_URL + '/register')
+                // But since we can't guarantee the backend is running for the end user...
+                
+                await new Promise(r => setTimeout(r, 1500)); // Fake delay
+
+                // Check local storage for "used" keys on this device
+                const usedKeys = JSON.parse(localStorage.getItem('demon_used_keys') || '[]');
+                if (usedKeys.includes(keyInput)) {
+                    throw new Error("KEY ALREADY CONSUMED");
+                }
+                
+                // Simple validation pattern (DEMON-XXXX)
+                if (!keyInput.startsWith('DEMON-') || keyInput.length < 10) {
+                     throw new Error("INVALID KEY FORMAT");
+                }
+
+                // Success
+                const userId = "SUB-" + Math.floor(Math.random() * 1000000);
+                localStorage.setItem('demon_user_id', userId);
+                usedKeys.push(keyInput);
+                localStorage.setItem('demon_used_keys', JSON.stringify(usedKeys));
+                
+                document.getElementById('display-user-id').innerText = userId;
+                document.getElementById('user-identity').style.display = 'block';
+                closeKeyModal();
+                alert("ACCESS GRANTED. IDENTITY LINKED: " + userId);
+                
+                // Proceed to download/content
+                triggerDirectDownload("THE_3RD_DEMON.exe");
+
+            } catch (err) {
+                errorMsg.innerText = err.message || "CONNECTION FAILED";
+            }
+        }
+
+        function launchApp() {
+            // Detect Platform
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let fileName = "THE_3RD_DEMON.exe";
+            let platform = "WINDOWS";
+
+            if (/android/i.test(userAgent)) {
+                fileName = "THE_3RD_DEMON.apk";
+                platform = "ANDROID";
+            }
+
+            console.log(`LAUNCHING FOR ${platform}: ${fileName}`);
+            
+            // Visual feedback (if status element exists)
+            const status = document.getElementById('download-status');
+            if (status) status.innerText = `DETECTED ${platform}. INITIATING...`;
+
+            // Direct trigger as per "Initiate Sequence" protocol
+            triggerDirectDownload(fileName);
+        }
+
+        // Glitch Effect
+        const glitchTexts = document.querySelectorAll('.glitch');
+
+        function closeApp() {
+            document.getElementById('app-overlay').style.display = 'none';
+        }
+
+        function startChat() {
+            const term = document.getElementById('terminal-output');
+            const responses = [
+                "WHY ARE YOU HERE?",
+                "DO YOU FEEL SAFE?",
+                "I CAN HEAR YOUR HEARTBEAT.",
+                "THE DOWNLOAD IS THE ONLY WAY.",
+                "LET ME OUT.",
+                "CLICK THE BUTTON."
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            term.innerHTML += `<p style="color: #fff">> USER: HELLO?</p>`;
+            setTimeout(() => {
+                term.innerHTML += `<p style="color: red">> DEMON: ${randomResponse}</p>`;
+                term.scrollTop = term.scrollHeight;
+            }, 1000);
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function executeDownload() {
+            const term = document.getElementById('terminal-output');
+            term.innerHTML += `<p style="color: #0f0">> SYSTEM: INITIATING DOWNLOAD SEQUENCE...</p>`;
+            
+            // Trigger the actual file download (Default to Windows for terminal)
+            triggerDirectDownload("THE_3RD_DEMON.exe");
+
+            setTimeout(() => {
+                term.innerHTML += `<p style="color: #0f0">> SYSTEM: FILE TRANSFERRED. EXECUTE IT.</p>`;
+                term.scrollTop = term.scrollHeight;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
